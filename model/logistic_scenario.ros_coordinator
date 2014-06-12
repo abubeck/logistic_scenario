@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ros:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ros="http://ros/1.0" xmlns:smach="http://smach/1.0" name="logistic_scenario" author="Alexander Bubeck" rosdep="">
+<ros:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ros="http://ros/1.0" xmlns:smach="http://smach/1.0" name="logistic_scenario" author="Alexander Bubeck" author_email="alexander.bubeck@ipa.fraunhofer.de" description="Application for rob@work to deliver boxes" url="http://www.ipa.fraunhofer.de">
   <node xsi:type="smach:SMACHStateMachine" name="logistic_scenario_app">
     <actionclient xsi:type="smach:ActionState" name="MoveHomePTP" ActionType="prace_primitives::MoveLin" goal="/logistic_scenario_app/MoveHomePTP" remap_overwrite="/MovePTP"/>
     <actionclient xsi:type="smach:ActionState" name="MoveBaseHome" ActionType="move_base_msgs::MoveBase" goal="/logistic_scenario_app/MoveBaseHome" remap_overwrite="/move_base"/>

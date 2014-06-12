@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<package>
+  <name>logistic_scenario</name>
+  <description>Application for rob@work to deliver boxes</description>
+  <version>0.0.0</version>
+  <maintainer email="alexander.bubeck@ipa.fraunhofer.de">Alexander Bubeck</maintainer>
+  <author email="alexander.bubeck@ipa.fraunhofer.de">Alexander Bubeck</author>
+  <license></license>
+  <url>http://www.ipa.fraunhofer.de</url>
+
+  <buildtool_depend>catkin</buildtool_depend>  
+
+  <build_depend>std_msgs</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>dynamic_reconfigure</build_depend>
+  <build_depend>smach</build_depend>
+  <build_depend>smach_ros</build_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>dynamic_reconfigure</run_depend>
+  <run_depend>smach</run_depend>
+  <run_depend>smach_ros</run_depend>
+
+  	<build_depend>move_base_msgs</build_depend>
+    <run_depend>move_base_msgs</run_depend>
+  	<build_depend>cob_object_detection_msgs</build_depend>
+    <run_depend>cob_object_detection_msgs</run_depend>
+  	<build_depend>prace_primitives</build_depend>
+    <run_depend>prace_primitives</run_depend>
+  	<build_depend>control_msgs</build_depend>
+    <run_depend>control_msgs</run_depend>
+  
+
+  <!-- protected region additional manifest statements on begin -->
+  <!-- protected region additional manifest statements end -->
+  
+  
+</package>
+
+

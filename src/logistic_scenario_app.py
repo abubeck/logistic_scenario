@@ -89,9 +89,9 @@ class logistic_scenario_app_impl:
 		sis = smach_ros.IntrospectionServer('logistic_scenario_app', sm0, '/logistic_scenario_app_sm')
 		sis.start()
 		with sm0:
-			#smach.StateMachine.add('MoveHomePTP', smach_ros.SimpleActionState('/MovePTP', MoveLinAction, self.MoveHomePTP_goal), {
-			#	"succeeded":"MoveBaseHome",
-			#})
+			smach.StateMachine.add('MoveHomePTP', smach_ros.SimpleActionState('/MovePTP', MoveLinAction, self.MoveHomePTP_goal), {
+				"succeeded":"MoveBaseHome",
+			})
 			smach.StateMachine.add('MoveBaseHome', smach_ros.SimpleActionState('/move_base', MoveBaseAction, self.MoveBaseHome_goal), {
 				"succeeded":"MoveBaseShelf",
 			})
@@ -111,7 +111,7 @@ class logistic_scenario_app_impl:
 				"succeeded":"MoveLinGraspBack",
 			})
 			smach.StateMachine.add('MoveLinGraspBack', smach_ros.SimpleActionState('/MoveLin', MoveLinAction, self.MoveLinGraspBack_goal), {
-				"succeeded":"MoveToRobotDeck",
+				"succeeded":"MoveLinPreNeutral",
 			})
 			smach.StateMachine.add('MoveToRobotDeck', smach_ros.SimpleActionState('/arm_controller/follow_joint_trajectory/', FollowJointTrajectoryAction, self.MoveToRobotDeck_goal), {
 				"succeeded":"MoveBaseDeliver",
@@ -125,7 +125,7 @@ class logistic_scenario_app_impl:
 			smach.StateMachine.add('DetectObjectsDeliver', smach_ros.SimpleActionState('/cob_marker/object_detection', DetectObjectsAction, self.DetectObjectsDeliver_goal), {
 				"succeeded":"MovePTPDeliver",
 			})
-			smach.StateMachine.add('MovePTPDeliver', smach_ros.SimpleActionState('/MoveLin', MoveLinAction, self.MovePTPDeliver_goal), {
+			smach.StateMachine.add('MovePTPDeliver', smach_ros.SimpleActionState('/MovePTP', MoveLinAction, self.MovePTPDeliver_goal), {
 				"succeeded":"MoveLinDeliver",
 			})
 			smach.StateMachine.add('MoveLinDeliverBack', smach_ros.SimpleActionState('/MoveLin', MoveLinAction, self.MoveLinDeliverBack_goal), {
@@ -154,7 +154,12 @@ class logistic_scenario_app_impl:
 			})
 	
 
+	
+		sm0.set_initial_state(['MoveHomePTP'])
+
 		# Execute
+
+		#sm0.set_initial_state()
 		outcome = sm0.execute()
 	
 		# protected region configureCode on begin #
@@ -180,10 +185,12 @@ class logistic_scenario_app:
 if __name__ == "__main__":
 	try:
 		rospy.init_node('logistic_scenario_app')
+		r = rospy.Rate(10)
 		n = logistic_scenario_app()
 		n.impl.configure()
 		while not rospy.is_shutdown():
 			n.run()
+			r.sleep()
 			
 	except rospy.ROSInterruptException:
 		print "Exit"

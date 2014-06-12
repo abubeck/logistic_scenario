@@ -104,7 +104,7 @@
       <children xmi:type="notation:Shape" xmi:id="_3QTr4Bb2EeO9qcE0l8gKkQ" type="3001" fontName="Ubuntu">
         <children xmi:type="notation:DecorationNode" xmi:id="_3QTr4Rb2EeO9qcE0l8gKkQ" type="5001"/>
         <element xmi:type="smach:ActionState" href="logistic_scenario.ros_coordinator#//@node.0/@actionclient.17"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3QTr4hb2EeO9qcE0l8gKkQ" x="751" y="25"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3QTr4hb2EeO9qcE0l8gKkQ" x="760" y="44"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_AhSvEBb3EeO9qcE0l8gKkQ" type="3001" fontName="Ubuntu">
         <children xmi:type="notation:DecorationNode" xmi:id="_AhSvERb3EeO9qcE0l8gKkQ" type="5001"/>
